@@ -146,8 +146,7 @@ void invertematriz(double ***A, int n, int *erro) {
 }
 
 // essa função recebe como parâmetros uma matriz M que será o resultado do produto das matrizes A e B. os inteiros a, b e c são, respectivamento, o número de linhas de A, o número de colunas de A/linhas de B e o número de colunas de B
-void multmatriz(double ***M, double **A, double **B, int a, int b, int c) {
-  
+void multmatriz(double ***M, double **A, double **B, int a, int b, int c) {  
   int i, j, k;
   
   for (i = 0; i < a; i++) {
@@ -164,7 +163,6 @@ void multmatriz(double ***M, double **A, double **B, int a, int b, int c) {
 
 // função que vai de fato implementar o simplex. receberemos como parâmetro um vetor x, que será nosso vetor solução (passamos como **x para alterarmos o valor aqui na função); a nossa matriz A de restrições; o vetor b da igualdade das restrições (Ax = b); o vetor de custo c; uma solução inicial; os índices básicos; o número de linhas m da matriz A e o número de colunas n da matriz A; um contador para calcular o número de iterações; e por último uma variável de erro pra caso aconteça algo nas alocações
 void simplex(double **x, double **A, double *b, double *c, double *solucao, int **base, int m, int n, int *cont, int *erro) {
-  
   int i, j, k = 0, l = -1, s, aux = 0, t;
   double cbarra, **cbt, **p, **B, **z, **u, thetaestrela, **Aj;
   
