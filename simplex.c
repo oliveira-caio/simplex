@@ -1,15 +1,13 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
 
-//essa função aloca um vetor de double com tamanho n para facilitar nossa vida durante o programa
-void alocavetor(double **vetor, int n){
-
+void alocavetor(double **vetor, int n) {
   int i;
-  
-  *vetor = (double*)malloc(n*sizeof(double));
-  for(i=0; i<n; i++){
+  *vetor = (double*) malloc(n*sizeof(double));
+	
+  for (i = 0; i < n; i++) {
     (*vetor)[i] = 0;
   }
 
@@ -17,12 +15,11 @@ void alocavetor(double **vetor, int n){
 }
 
 //essa função também serve para alocar um vetor de tamanho n, mas dessa vez vetores com entradas inteiras
-void alocavetint(int **vetor, int n){
-
+void alocavetint(int **vetor, int n) {
   int i;
-  
-  *vetor = (int*)malloc(n*sizeof(int));
-  for(i=0; i<n; i++){
+  *vetor = (int*) malloc(n*sizeof(int));
+	
+  for (i = 0; i < n; i++) {
     (*vetor)[i] = 0;
   }
   
@@ -30,15 +27,14 @@ void alocavetint(int **vetor, int n){
 }
 
 //essa função aloca uma matriz de double de tamanho m (linhas) por n (colunas) e preenche ela com zero
-void alocamatriz(double ***matriz, int m, int n){
-
+void alocamatriz(double ***matriz, int m, int n) {
   int i, j;
 
-  *matriz = (double**)malloc(m*sizeof(double*));
+  *matriz = (double**) malloc(m*sizeof(double*));
   
-  for(i=0; i<m; i++){
-    (*matriz)[i] = (double*)malloc(n*sizeof(double));
-    for(j=0; j<n; j++){
+  for (i = 0; i < m; i++) {
+    (*matriz)[i] = (double*) malloc(n*sizeof(double));
+    for (j = 0; j < n; j++) {
       (*matriz)[i][j] = 0;
     }
   }
@@ -47,26 +43,23 @@ void alocamatriz(double ***matriz, int m, int n){
 }
 
 //essa função serve para desalocar uma matriz de double com m linhas
-void desalocamatriz(double ***matriz, int m){
-
+void desalocamatriz(double ***matriz, int m) {
   int i;
   
-  for(i=0; i<m; i++){
+  for (i = 0; i < m; i++) {
     free((*matriz)[i]);
-    (*matriz)[i] = NULL;
   }
   
   free(*matriz);
-  *matriz = NULL;
 
   return;
 }
 
 //função que desaloca vetores de inteiros
-void desalocavetint(int **vetor){
+void desalocavetint(int **vetor) {
 
-  free(*vetor);
-  *vetor = NULL;
+	free(*vetor);
+	vetor = NULL;
 
   return;
 }
